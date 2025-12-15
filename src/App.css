@@ -1,0 +1,99 @@
+/* App Container Styles */
+.app {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Gradient Mesh Background */
+.gradient-mesh {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(at 40% 20%, rgba(157, 78, 221, 0.15) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, rgba(0, 245, 255, 0.1) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, rgba(255, 0, 128, 0.1) 0px, transparent 50%),
+    radial-gradient(at 80% 50%, rgba(0, 255, 136, 0.08) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(255, 215, 0, 0.1) 0px, transparent 50%),
+    radial-gradient(at 50% 80%, rgba(0, 255, 136, 0.05) 0px, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Three.js Canvas Container */
+.canvas-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Main Content */
+main {
+  position: relative;
+  z-index: 10;
+}
+
+/* Section base styles */
+section {
+  position: relative;
+  z-index: 10;
+}
+
+/* Scanline Effect */
+.scanline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.3), transparent);
+  animation: scanline 8s linear infinite;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+@keyframes scanline {
+  0% {
+    top: -2px;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    top: 100vh;
+    opacity: 0;
+  }
+}
+
+/* Decorative Grid */
+.grid-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(0, 255, 136, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 136, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .canvas-container {
+    opacity: 0.5;
+  }
+}

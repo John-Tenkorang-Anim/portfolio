@@ -1,0 +1,262 @@
+.experience {
+  padding: 8rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.experience-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Header */
+.experience-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+/* Content Layout */
+.experience-content {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 3rem;
+}
+
+/* Tabs */
+.experience-tabs {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.experience-tabs::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+}
+
+.exp-tab {
+  position: relative;
+  padding: 1rem 1.5rem;
+  background: none;
+  border: none;
+  text-align: left;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.exp-tab:hover {
+  color: var(--neon-green);
+  background: rgba(0, 255, 136, 0.05);
+}
+
+.exp-tab.active {
+  color: var(--neon-green);
+}
+
+.tab-indicator {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--neon-green);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+.exp-tab.active .tab-indicator {
+  transform: scaleY(1);
+}
+
+/* Panel */
+.exp-panel {
+  min-height: 350px;
+}
+
+.exp-role {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.exp-at {
+  color: var(--text-muted);
+}
+
+.exp-company {
+  color: var(--neon-green);
+}
+
+.exp-meta {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.exp-period,
+.exp-location {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.exp-period svg,
+.exp-location svg {
+  width: 16px;
+  height: 16px;
+  color: var(--neon-green);
+}
+
+.exp-description {
+  list-style: none;
+  margin-bottom: 2rem;
+}
+
+.exp-description li {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.exp-bullet {
+  color: var(--neon-green);
+  flex-shrink: 0;
+  margin-top: 0.3rem;
+}
+
+.exp-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.tech-badge {
+  padding: 0.4rem 1rem;
+  background: rgba(0, 255, 136, 0.08);
+  border: 1px solid rgba(0, 255, 136, 0.2);
+  border-radius: 50px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--neon-green);
+}
+
+/* Timeline Decoration */
+.timeline-decoration {
+  position: absolute;
+  right: -100px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 300px;
+  width: 2px;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  background: linear-gradient(180deg, transparent, rgba(0, 255, 136, 0.3), transparent);
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  background: var(--neon-green);
+  border-radius: 50%;
+  box-shadow: 0 0 20px var(--neon-green);
+}
+
+.timeline-dot-1 { top: 0; }
+.timeline-dot-2 { top: 50%; }
+.timeline-dot-3 { bottom: 0; }
+
+/* Background */
+.experience-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.bg-circle {
+  position: absolute;
+  top: 50%;
+  left: -200px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(157, 78, 221, 0.05) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .experience {
+    padding: 5rem 1.5rem;
+  }
+
+  .experience-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .experience-tabs {
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+  }
+
+  .experience-tabs::before {
+    display: none;
+  }
+
+  .exp-tab {
+    white-space: nowrap;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .exp-tab.active {
+    border-bottom-color: var(--neon-green);
+  }
+
+  .tab-indicator {
+    display: none;
+  }
+
+  .exp-meta {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .timeline-decoration {
+    display: none;
+  }
+}
