@@ -57,12 +57,12 @@
 }
 
 .exp-tab:hover {
-  color: var(--neon-green);
-  background: rgba(0, 255, 136, 0.05);
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .exp-tab.active {
-  color: var(--neon-green);
+  color: var(--text-primary);
 }
 
 .tab-indicator {
@@ -71,18 +71,24 @@
   top: 0;
   bottom: 0;
   width: 2px;
-  background: var(--neon-green);
-  transform: scaleY(0);
-  transition: transform 0.3s ease;
-}
-
-.exp-tab.active .tab-indicator {
-  transform: scaleY(1);
+  transform-origin: top;
 }
 
 /* Panel */
 .exp-panel {
   min-height: 350px;
+  padding: 2rem;
+  border-left: 2px solid color-mix(in srgb, var(--exp-color, var(--neon-green)) 30%, transparent);
+  border-radius: 8px;
+  background: linear-gradient(135deg,
+    color-mix(in srgb, var(--exp-color, var(--neon-green)) 3%, transparent),
+    transparent 50%);
+  transition: all 0.4s ease;
+}
+
+.exp-panel:hover {
+  border-left-color: color-mix(in srgb, var(--exp-color, var(--neon-green)) 60%, transparent);
+  box-shadow: -4px 0 20px color-mix(in srgb, var(--exp-color, var(--neon-green)) 15%, transparent);
 }
 
 .exp-role {
@@ -98,7 +104,7 @@
 }
 
 .exp-company {
-  color: var(--neon-green);
+  color: var(--exp-color, var(--neon-green));
 }
 
 .exp-meta {
@@ -121,7 +127,7 @@
 .exp-location svg {
   width: 16px;
   height: 16px;
-  color: var(--neon-green);
+  color: var(--exp-color, var(--neon-green));
 }
 
 .exp-description {
@@ -139,7 +145,7 @@
 }
 
 .exp-bullet {
-  color: var(--neon-green);
+  color: var(--exp-color, var(--neon-green));
   flex-shrink: 0;
   margin-top: 0.3rem;
 }
@@ -152,12 +158,19 @@
 
 .tech-badge {
   padding: 0.4rem 1rem;
-  background: rgba(0, 255, 136, 0.08);
-  border: 1px solid rgba(0, 255, 136, 0.2);
+  background: color-mix(in srgb, var(--exp-color, var(--neon-green)) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--exp-color, var(--neon-green)) 20%, transparent);
   border-radius: 50px;
   font-family: var(--font-mono);
   font-size: 0.8rem;
-  color: var(--neon-green);
+  color: var(--exp-color, var(--neon-green));
+  transition: all 0.3s ease;
+}
+
+.tech-badge:hover {
+  background: color-mix(in srgb, var(--exp-color, var(--neon-green)) 15%, transparent);
+  border-color: var(--exp-color, var(--neon-green));
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--exp-color, var(--neon-green)) 20%, transparent);
 }
 
 /* Timeline Decoration */
@@ -177,7 +190,10 @@
   left: 50%;
   transform: translateX(-50%);
   width: 2px;
-  background: linear-gradient(180deg, transparent, rgba(0, 255, 136, 0.3), transparent);
+  background: linear-gradient(180deg,
+    transparent,
+    color-mix(in srgb, var(--exp-color, var(--neon-green)) 30%, transparent),
+    transparent);
 }
 
 .timeline-dot {
@@ -186,9 +202,21 @@
   transform: translateX(-50%);
   width: 10px;
   height: 10px;
-  background: var(--neon-green);
+  background: var(--exp-color, var(--neon-green));
   border-radius: 50%;
-  box-shadow: 0 0 20px var(--neon-green);
+  box-shadow: 0 0 20px var(--exp-color, var(--neon-green));
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-50%) scale(1.2);
+    opacity: 0.8;
+  }
 }
 
 .timeline-dot-1 { top: 0; }
@@ -204,6 +232,7 @@
   bottom: 0;
   pointer-events: none;
   z-index: -1;
+  overflow: hidden;
 }
 
 .bg-circle {
@@ -212,9 +241,39 @@
   left: -200px;
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(157, 78, 221, 0.05) 0%, transparent 70%);
   border-radius: 50%;
   transform: translateY(-50%);
+  animation: float-circle 8s ease-in-out infinite;
+}
+
+@keyframes float-circle {
+  0%, 100% {
+    transform: translateY(-50%) translateX(0);
+  }
+  50% {
+    transform: translateY(-50%) translateX(50px);
+  }
+}
+
+.bg-circle::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, color-mix(in srgb, var(--exp-color, var(--neon-green)) 5%, transparent) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float-circle-secondary 6s ease-in-out infinite reverse;
+}
+
+@keyframes float-circle-secondary {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
 }
 
 /* Responsive */

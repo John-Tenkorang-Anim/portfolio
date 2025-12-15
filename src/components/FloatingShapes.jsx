@@ -5,16 +5,16 @@ import * as THREE from 'three'
 const FloatingShapes = ({ mousePosition }) => {
   const groupRef = useRef()
 
-  // Create multiple geometric shapes
+  // Create multiple geometric shapes with subtle colors
   const shapes = [
-    { type: 'octahedron', position: [-4, 2, -5], color: '#00FFFF', scale: 0.8 },
-    { type: 'torus', position: [5, -3, -8], color: '#FF1493', scale: 0.6 },
-    { type: 'icosahedron', position: [-6, -4, -6], color: '#FFFF00', scale: 0.7 },
-    { type: 'tetrahedron', position: [4, 3, -7], color: '#39FF14', scale: 0.9 },
-    { type: 'dodecahedron', position: [0, 5, -10], color: '#FF00FF', scale: 0.5 },
-    { type: 'octahedron', position: [7, 0, -9], color: '#FFA500', scale: 0.6 },
-    { type: 'cone', position: [-3, -2, -4], color: '#00FFFF', scale: 0.8 },
-    { type: 'torus', position: [2, -5, -7], color: '#FF073A', scale: 0.5 },
+    { type: 'octahedron', position: [-4, 2, -5], color: '#1a4d6d', scale: 0.8 },
+    { type: 'torus', position: [5, -3, -8], color: '#2d1b3d', scale: 0.6 },
+    { type: 'icosahedron', position: [-6, -4, -6], color: '#1a3d4d', scale: 0.7 },
+    { type: 'tetrahedron', position: [4, 3, -7], color: '#2d1b2d', scale: 0.9 },
+    { type: 'dodecahedron', position: [0, 5, -10], color: '#1b2d3d', scale: 0.5 },
+    { type: 'octahedron', position: [7, 0, -9], color: '#3d2d1b', scale: 0.6 },
+    { type: 'cone', position: [-3, -2, -4], color: '#1a4d6d', scale: 0.8 },
+    { type: 'torus', position: [2, -5, -7], color: '#2d1b3d', scale: 0.5 },
   ]
 
   useFrame((state) => {
@@ -80,9 +80,9 @@ const FloatingShapes = ({ mousePosition }) => {
             <meshStandardMaterial
               color={shape.color}
               emissive={shape.color}
-              emissiveIntensity={0.5}
+              emissiveIntensity={0.2}
               transparent
-              opacity={0.3}
+              opacity={0.15}
               wireframe
               blending={THREE.AdditiveBlending}
             />

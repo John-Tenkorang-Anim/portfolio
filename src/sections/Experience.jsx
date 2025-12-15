@@ -10,45 +10,94 @@ const Experience = () => {
   const experiences = [
     {
       id: 0,
-      company: "Cornell University",
-      role: "Student Developer & Researcher",
-      period: "2024 - Present",
-      location: "Ithaca, NY",
+      company: "Microsoft",
+      role: "Software Engineer Intern · CoreAI",
+      period: "Nov 2025 - Present",
+      location: "Remote",
+      color: "#00FFFF", // Cyan
       description: [
-        "Pursuing Bachelor's in Computer Science with focus on AI/ML and distributed systems",
-        "Building enterprise-grade applications using modern tech stacks including React, Node.js, and Python",
-        "Developing AI-powered solutions for real-world applications",
-        "Collaborating with peers on innovative technical projects and research initiatives"
+        "Incoming SWE intern, CoreAI team, summer 2026",
+        "Working on cutting-edge AI infrastructure and core AI systems",
+        "Collaborating with Microsoft's CoreAI division on next-generation intelligent applications"
       ],
-      tech: ["Python", "React", "TensorFlow", "AWS", "Docker"]
+      tech: ["Python", "AI/ML", "Cloud Computing", "Azure"]
     },
     {
       id: 1,
-      company: "Personal Projects",
-      role: "Full Stack Developer & ML Engineer",
-      period: "2023 - Present",
+      company: "Carmauto",
+      role: "Software Engineer Intern",
+      period: "May 2025 - Aug 2025",
       location: "Remote",
+      color: "#FF1493", // Pink
       description: [
-        "Developed Smart Expense Tracker using machine learning for expenditure prediction",
-        "Built complete Pac-Man game with Java implementing graph algorithms for AI pathfinding",
-        "Created Smart Grid Energy Forecast system for optimizing energy consumption patterns",
-        "Designed and deployed scalable cloud solutions using AWS and Docker"
+        "Built a cross-platform calendar sync system (Node.js, React, Google/Outlook APIs) to streamline mechanic scheduling",
+        "Improved efficiency with real-time updates and resolved bugs to strengthen code reliability",
+        "Collaborated with engineers using Git workflows and code reviews to ship scalable features",
+        "Delivered production-ready features that enhanced operational workflow"
       ],
-      tech: ["Java", "Python", "TensorFlow", "React", "PostgreSQL"]
+      tech: ["Node.js", "React.js", "Next.js", "Express.js", "Google APIs", "Outlook APIs"]
     },
     {
       id: 2,
-      company: "Open Source",
-      role: "Contributor",
-      period: "2023 - Present",
+      company: "AI4ALL",
+      role: "AI/ML Ignite Fellow",
+      period: "Apr 2025 - Oct 2025",
       location: "Remote",
+      color: "#9D4EDD", // Purple
       description: [
-        "Contributing to various open-source ML and web development projects",
-        "Building Machine Learning repositories showcasing neural networks and deep learning",
-        "Creating SimuStack for distributed systems simulation and testing",
-        "Maintaining comprehensive documentation and best practices"
+        "5–6 month accelerator program developing the next generation of ethical AI professionals",
+        "13 weeks of hands-on AI/ML project development followed by 7 weeks of career readiness training",
+        "Collaborated in teams to design, build, and deploy machine learning models across the full project lifecycle",
+        "Integrated technical training with discussions on ethical AI, focusing on responsible practices and societal impact",
+        "Received career support, including interview preparation, mentorship, and networking with industry professionals"
       ],
-      tech: ["Python", "Docker", "Git", "Linux", "CI/CD"]
+      tech: ["Machine Learning", "XGBoost", "Regression Modeling", "Feature Engineering", "Ethical AI"]
+    },
+    {
+      id: 3,
+      company: "Cornell AppDev",
+      role: "Backend Developer · Hackathon",
+      period: "Apr 2025 - May 2025",
+      location: "Ithaca, NY",
+      color: "#39FF14", // Green
+      description: [
+        "Built and deployed RESTful API endpoints with Flask and SQLAlchemy for a language pairing app",
+        "Configured a Google Cloud VM instance, containerized services with Docker, and published for scalable deployment",
+        "Optimized database queries to handle concurrent users with sub-second response times",
+        "Authored clear API documentation covering 15 endpoints to streamline frontend–backend integration"
+      ],
+      tech: ["Flask", "SQLAlchemy", "Docker", "GCP", "RESTful APIs", "PostgreSQL"]
+    },
+    {
+      id: 4,
+      company: "NVIDIA",
+      role: "Summer Bridge Experience",
+      period: "Jun 2025 - Aug 2025",
+      location: "Remote",
+      color: "#FFFF00", // Yellow
+      description: [
+        "Participated in NVIDIA Summer Bridge, engaging with professionals across software and hardware engineering",
+        "Gained insights into NVIDIA's innovative culture and diverse engineering roles",
+        "Attended career development sessions, including resume building and industry guidance",
+        "Expanded professional network through meaningful conversations with NVIDIA engineers and recruiters"
+      ],
+      tech: ["CUDA", "Software Engineering", "GPU Computing", "Networking"]
+    },
+    {
+      id: 5,
+      company: "CodePath",
+      role: "Technical Interview Prep Student",
+      period: "May 2025 - Aug 2025",
+      location: "Remote",
+      color: "#FF00FF", // Magenta
+      description: [
+        "Enrolled in a 12-week intensive Technical Interview Prep program for software engineering roles",
+        "Practiced advanced data structures and algorithms through hands-on coding challenges",
+        "Strengthened problem-solving skills and time complexity analysis",
+        "Participated in mock technical interviews to simulate real-world scenarios",
+        "Gained strategies to optimize coding efficiency and improve interview performance"
+      ],
+      tech: ["Python", "Data Structures", "Algorithms", "System Design", "Technical Interviews"]
     }
   ]
 
@@ -68,21 +117,30 @@ const Experience = () => {
 
         <div className="experience-content">
           {/* Tabs */}
-          <motion.div 
+          <motion.div
             className="experience-tabs"
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             {experiences.map((exp, index) => (
-              <button
+              <motion.button
                 key={exp.id}
                 className={`exp-tab ${activeTab === index ? 'active' : ''}`}
                 onClick={() => setActiveTab(index)}
+                whileHover={{ x: 5 }}
+                transition={{ duration: 0.2 }}
               >
-                <span className="tab-indicator" />
+                <motion.span
+                  className="tab-indicator"
+                  style={{ background: exp.color }}
+                  animate={{
+                    scaleY: activeTab === index ? 1 : 0
+                  }}
+                  transition={{ duration: 0.3 }}
+                />
                 {exp.company}
-              </button>
+              </motion.button>
             ))}
           </motion.div>
 
@@ -91,20 +149,31 @@ const Experience = () => {
             <AnimatePresence mode="wait">
               {experiences.map((exp, index) => (
                 activeTab === index && (
-                  <motion.div 
+                  <motion.div
                     key={exp.id}
                     className="exp-panel"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.3 }}
+                    style={{ '--exp-color': exp.color }}
                   >
-                    <h3 className="exp-role">
+                    <motion.h3
+                      className="exp-role"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.4, delay: 0.1 }}
+                    >
                       {exp.role} <span className="exp-at">@</span>{' '}
                       <span className="exp-company">{exp.company}</span>
-                    </h3>
+                    </motion.h3>
                     
-                    <div className="exp-meta">
+                    <motion.div
+                      className="exp-meta"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: 0.2 }}
+                    >
                       <span className="exp-period">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                           <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
@@ -121,7 +190,7 @@ const Experience = () => {
                         </svg>
                         {exp.location}
                       </span>
-                    </div>
+                    </motion.div>
 
                     <ul className="exp-description">
                       {exp.description.map((item, i) => (
@@ -137,11 +206,25 @@ const Experience = () => {
                       ))}
                     </ul>
 
-                    <div className="exp-tech">
-                      {exp.tech.map(tech => (
-                        <span key={tech} className="tech-badge">{tech}</span>
+                    <motion.div
+                      className="exp-tech"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: 0.3 + exp.description.length * 0.1 }}
+                    >
+                      {exp.tech.map((tech, techIndex) => (
+                        <motion.span
+                          key={tech}
+                          className="tech-badge"
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ duration: 0.3, delay: 0.4 + exp.description.length * 0.1 + techIndex * 0.05 }}
+                          whileHover={{ scale: 1.05, y: -2 }}
+                        >
+                          {tech}
+                        </motion.span>
                       ))}
-                    </div>
+                    </motion.div>
                   </motion.div>
                 )
               ))}
@@ -150,11 +233,12 @@ const Experience = () => {
         </div>
 
         {/* Timeline decoration */}
-        <motion.div 
+        <motion.div
           className="timeline-decoration"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
+          style={{ '--exp-color': experiences[activeTab]?.color }}
         >
           <div className="timeline-line" />
           <div className="timeline-dot timeline-dot-1" />
@@ -165,7 +249,13 @@ const Experience = () => {
 
       {/* Background */}
       <div className="experience-bg">
-        <div className="bg-circle" />
+        <motion.div
+          className="bg-circle"
+          animate={{
+            background: `radial-gradient(circle, ${experiences[activeTab]?.color}15 0%, transparent 70%)`
+          }}
+          transition={{ duration: 0.6 }}
+        />
       </div>
     </section>
   )

@@ -70,7 +70,8 @@ const Navbar = () => {
         {/* Resume Button */}
         <motion.a
           href="/resume/John_Tenkorang_Anim_Resume.pdf"
-          download="John_Tenkorang_Anim_Resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
           className="nav-cta"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -122,7 +123,8 @@ const Navbar = () => {
             ))}
             <a
               href="/resume/John_Tenkorang_Anim_Resume.pdf"
-              download="John_Tenkorang_Anim_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="mobile-cta"
             >
               Resume
