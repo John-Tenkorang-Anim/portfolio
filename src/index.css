@@ -11,15 +11,15 @@
   --font-text: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
-  --bg: #f7f6f2;
+  --bg: #ffffff;
   --surface: #ffffff;
-  --tint: #efede7;
-  --ink: #14161b;
-  --ink-soft: #3a3e47;
-  --muted: #6b6f78;
-  --line: #e2dfd7;
-  --line-strong: #cfcbc0;
-  --grid-dot: #d9d5cb;
+  --tint: #f4f7ff;
+  --ink: #0f172a;
+  --ink-soft: #334155;
+  --muted: #64748b;
+  --line: #e3e8f2;
+  --line-strong: #cbd3e1;
+  --grid-dot: #d5ddf0;
 
   --accent: #2747d6;
   --accent-ink: #1a339f;
@@ -231,7 +231,7 @@ code {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgb(247 246 242 / 0.8);
+  background: rgb(255 255 255 / 0.82);
   backdrop-filter: saturate(160%) blur(14px);
   -webkit-backdrop-filter: saturate(160%) blur(14px);
   border-bottom: 1px solid var(--line);
@@ -277,8 +277,14 @@ code {
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
-  padding-block: clamp(3.5rem, 8vw, 6.5rem) clamp(4rem, 8vw, 6.5rem);
+  isolation: isolate;
+  padding-block: clamp(3.5rem, 8vw, 6.5rem) clamp(3rem, 6vw, 4.5rem);
   overflow: hidden;
+  background:
+    radial-gradient(60% 55% at 85% 20%, rgb(99 132 255 / 0.16), transparent 70%),
+    radial-gradient(45% 50% at 10% 90%, rgb(56 189 248 / 0.12), transparent 70%),
+    radial-gradient(40% 40% at 55% 0%, rgb(167 139 250 / 0.10), transparent 70%),
+    var(--bg);
 }
 .hero::before {
   content: "";
@@ -347,6 +353,27 @@ code {
   border-radius: var(--radius);
   background: #fff;
 }
+
+/* Focus areas, shown as a row under the intro */
+.focus-band { margin-top: clamp(3rem, 7vw, 4.5rem); }
+.focus-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+.focus-grid li {
+  padding: 1.15rem 1.15rem 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgb(255 255 255 / 0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: border-color 0.2s var(--ease), transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+.focus-grid li:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: var(--shadow); }
+.focus-grid strong { display: block; font-family: var(--font-display); font-weight: 600; font-size: 1rem; letter-spacing: -0.01em; line-height: 1.3; }
+.focus-grid span { display: block; margin-top: 0.4rem; font-size: 0.875rem; line-height: 1.5; color: var(--muted); }
 
 /* ---------- Sections ---------- */
 .section {
@@ -560,35 +587,6 @@ code {
 .project-featured h3 { font-size: 1.75rem; }
 .project-featured .project-links { margin-top: 0.4rem; }
 
-/* ---------- About ---------- */
-.about {
-  display: grid;
-  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
-  gap: clamp(2rem, 6vw, 5rem);
-  align-items: start;
-}
-.prose { max-width: 40rem; }
-.prose p { color: var(--ink-soft); }
-.prose p + p { margin-top: 1.1rem; }
-.prose .prose-lead {
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: clamp(1.3rem, 2.4vw, 1.6rem);
-  line-height: 1.35;
-  letter-spacing: -0.02em;
-  color: var(--ink);
-}
-.focus, .skills-panel {
-  padding: 1.6rem;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--surface);
-}
-.focus-list { display: grid; gap: 1.1rem; margin-top: 1.1rem; }
-.focus-list li + li { padding-top: 1.1rem; border-top: 1px solid var(--line); }
-.focus-list strong { display: block; font-weight: 600; }
-.focus-list span { display: block; margin-top: 0.15rem; font-size: 0.925rem; color: var(--muted); line-height: 1.55; }
-
 /* ---------- Education & skills ---------- */
 .edu-skills {
   display: grid;
@@ -613,6 +611,12 @@ code {
 .school-details dt { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); }
 .school-details dd { color: var(--ink-soft); }
 
+.skills-panel {
+  padding: 1.6rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
 .skills { display: grid; gap: 1.5rem; margin-top: 1.1rem; }
 .skills dt { margin-bottom: 0.6rem; font-weight: 600; font-size: 0.95rem; }
 
@@ -665,8 +669,9 @@ code {
 /* ---------- Responsive ---------- */
 @media (max-width: 64rem) {
   .site-nav { display: none; }
-  .about, .edu-skills { grid-template-columns: minmax(0, 1fr); }
-  .focus, .skills-panel { max-width: 44rem; }
+  .edu-skills { grid-template-columns: minmax(0, 1fr); }
+  .skills-panel { max-width: 44rem; }
+  .focus-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .program-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
@@ -686,7 +691,7 @@ code {
   .role { grid-template-columns: minmax(0, 1fr); gap: 0.6rem; padding-block: 1.6rem; }
   .role-meta { display: flex; flex-wrap: wrap; gap: 0.4rem 0.75rem; align-items: center; }
   .role-place { margin-top: 0; }
-  .program-list, .project-grid { grid-template-columns: minmax(0, 1fr); }
+  .program-list, .project-grid, .focus-grid { grid-template-columns: minmax(0, 1fr); }
   .project-featured h3 { font-size: 1.3rem; }
   .status-hide-sm { display: none !important; }
 }
