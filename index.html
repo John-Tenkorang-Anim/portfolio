@@ -1,22 +1,416 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="John Tenkorang Anim - Full Stack Developer | AI/ML Engineer | System Architect" />
-    <meta name="keywords" content="John Tenkorang Anim, Full Stack Developer, AI, Machine Learning, Cornell University" />
-    <meta name="author" content="John Tenkorang Anim" />
-    <meta property="og:title" content="John Tenkorang Anim - Portfolio" />
-    <meta property="og:description" content="Full Stack Developer | AI/ML Engineer | System Architect" />
-    <meta property="og:type" content="website" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>John Tenkorang Anim — Software Engineer</title>
+    <meta name="description" content="John Tenkorang Anim, Cornell Information Science student and former Microsoft software engineering intern building AI infrastructure, distributed systems, and fast, dependable software.">
+    <meta name="author" content="John Tenkorang Anim">
+    <meta name="theme-color" content="#f7f6f2">
+    <meta property="og:title" content="John Tenkorang Anim — Software Engineer">
+    <meta property="og:description" content="Backend and distributed systems, AI agent infrastructure, and selected projects.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="/john-anim-portrait.png">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Satoshi:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <title>John Tenkorang Anim | Portfolio</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap">
+    <link rel="stylesheet" href="/src/index.css">
+    <script src="/src/main.js" defer></script>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="wordmark" href="#top" aria-label="John Tenkorang Anim, back to top">
+          <span class="wordmark-prompt" aria-hidden="true">~/</span>john-anim<span class="cursor" aria-hidden="true"></span>
+        </a>
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="#experience"><span aria-hidden="true">01</span>experience</a>
+          <a href="#research"><span aria-hidden="true">02</span>research</a>
+          <a href="#projects"><span aria-hidden="true">03</span>projects</a>
+          <a href="#about"><span aria-hidden="true">04</span>about</a>
+        </nav>
+        <a class="button button-small" href="/resume/John_Tenkorang_Anim_Resume.pdf">resume.pdf <span aria-hidden="true">↓</span></a>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- ========== Hero ========== -->
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="wrap hero-inner">
+          <div class="hero-copy">
+            <p class="kicker"><span class="kicker-comment">//</span> hello, world</p>
+            <h1 id="hero-title">John Tenkorang Anim</h1>
+            <p class="hero-lede">I want to help build the AI infrastructure that Ghana, and Africa at large, will <em>run on</em>.</p>
+            <p class="hero-detail">I grew up in Ghana, and I want the next wave of AI to be built there, not just used there. That starts with infrastructure: the compute, networks, and distributed systems that make models fast, affordable, and reliable close to home. I love optimizing systems: finding the bottleneck, cutting the latency, and making things hold up when parts fail. At Cornell, where I study Information Science, I’m learning every layer of that stack, from the network up to LLM agents.</p>
+            <div class="hero-actions">
+              <a class="button" href="mailto:ja857@cornell.edu">Get in touch</a>
+              <a class="button button-ghost" href="/resume/John_Tenkorang_Anim_Resume.pdf">View résumé</a>
+              <span class="hero-socials">
+                <a href="https://github.com/John-Tenkorang-Anim">GitHub</a>
+                <a href="https://www.linkedin.com/in/john-anim/">LinkedIn</a>
+              </span>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <figure class="hero-portrait">
+              <img src="/john-anim-portrait.png" alt="Portrait of John Tenkorang Anim" width="375" height="666">
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== Experience ========== -->
+      <section class="section" id="experience" aria-labelledby="experience-title">
+        <div class="wrap">
+          <header class="section-head">
+            <p class="section-label"><span>01</span> ~/experience</p>
+            <h2 id="experience-title">Experience</h2>
+          </header>
+
+          <ol class="timeline">
+            <li class="role role-featured">
+              <div class="role-meta">
+                <p class="role-date">2026.05 → 2026.08</p>
+                <p class="role-place">Redmond, WA</p>
+              </div>
+              <div class="role-body">
+                <h3>Software Engineering Intern</h3>
+                <p class="role-org">Microsoft · CoreAI Platform &amp; Tools</p>
+                <ul class="bullets">
+                  <li>Designed and shipped an Azure platform that replays AI agents on captured production traces to catch silent regressions before rollout. Owned it end to end and authored its architecture decision records.</li>
+                  <li>Built a PostgreSQL-backed simulator that answers tool calls from recorded traces, plus a framework-agnostic orchestrator driving multi-turn sessions with Microsoft Foundry’s user simulator, with no live backend or customer data.</li>
+                  <li>Built the trace pipeline: OpenTelemetry span ingestion, a five-dimension diff engine (tool calls, trajectory, cost, latency, output), and RAG-generated test scenarios replacing hand-written cases.</li>
+                  <li>Raised regression-detection AUC from ~0.60 to 0.78–0.80 by scoring runs as typed execution graphs with a GNN, validated on τ²-bench.</li>
+                  <li>The project progressed into <a href="#research">Trace2RLE</a>, a research manuscript now under review that turns agent traces into stateful reinforcement-learning environments.</li>
+                </ul>
+                <ul class="tags" aria-label="Technologies"><li>Azure</li><li>PostgreSQL</li><li>OpenTelemetry</li><li>GNNs</li><li>RAG</li></ul>
+              </div>
+            </li>
+
+            <li class="role">
+              <div class="role-meta">
+                <p class="role-date">2026.09 → now</p>
+                <p class="role-place">Ithaca, NY</p>
+              </div>
+              <div class="role-body">
+                <h3>Undergraduate Research Assistant</h3>
+                <p class="role-org">Cornell Ann S. Bowers College of Computing and Information Science</p>
+                <p>Training large language models for literary annotation under Professor Matthew Wilkens.</p>
+                <ul class="tags" aria-label="Focus areas"><li>LLMs</li><li>NLP</li><li>Computational humanities</li></ul>
+              </div>
+            </li>
+
+            <li class="role">
+              <div class="role-meta">
+                <p class="role-date">2025.05 → 2025.08</p>
+                <p class="role-place">Remote</p>
+              </div>
+              <div class="role-body">
+                <h3>Software Engineering Intern</h3>
+                <p class="role-org">Carmauto</p>
+                <ul class="bullets">
+                  <li>Built the Node.js/React booking platform that moved New York auto shops off phone-and-paper scheduling.</li>
+                  <li>Engineered two-way Google Calendar and Outlook sync, validating each booking against synced events to eliminate double-bookings.</li>
+                  <li>Resolved 15+ production bugs through Git code review, cutting customer-reported issues.</li>
+                </ul>
+                <ul class="tags" aria-label="Technologies"><li>Node.js</li><li>React</li><li>Calendar APIs</li></ul>
+              </div>
+            </li>
+
+            <li class="role">
+              <div class="role-meta">
+                <p class="role-date">2025.06 → 2025.08</p>
+                <p class="role-place">Remote</p>
+              </div>
+              <div class="role-body">
+                <h3>AI/ML Fellow</h3>
+                <p class="role-org">AI4ALL</p>
+                <ul class="bullets">
+                  <li>Built a Spark ETL pipeline turning California grid-level MW telemetry into household-level kWh demand features.</li>
+                  <li>Trained XGBoost forecasters for demand, price, and carbon, plus an RL agent balancing cost against carbon, and shipped them in Streamlit.</li>
+                </ul>
+                <ul class="tags" aria-label="Technologies"><li>Spark</li><li>XGBoost</li><li>Reinforcement learning</li><li>Streamlit</li></ul>
+              </div>
+            </li>
+
+            <li class="role">
+              <div class="role-meta">
+                <p class="role-date">2025.04 → 2025.05</p>
+                <p class="role-place">Ithaca, NY</p>
+              </div>
+              <div class="role-body">
+                <h3>Backend Developer</h3>
+                <p class="role-org">Cornell App Development (AppDev) · Hackathon</p>
+                <ul class="bullets">
+                  <li>Developed and deployed REST API endpoints using Flask and SQLAlchemy for a language-pairing app.</li>
+                  <li>Configured a Google Cloud VM instance and containerized services with Docker for scalable deployment.</li>
+                  <li>Optimized database queries to keep response times under a second for concurrent users.</li>
+                  <li>Wrote comprehensive API documentation for 15 endpoints to streamline frontend–backend integration.</li>
+                </ul>
+                <ul class="tags" aria-label="Technologies"><li>Flask</li><li>SQLAlchemy</li><li>Docker</li><li>Google Cloud</li></ul>
+              </div>
+            </li>
+          </ol>
+
+          <div class="programs">
+            <h3 class="subhead">Leadership &amp; programs</h3>
+            <ul class="program-list">
+              <li>
+                <p class="program-meta">2025.04 → 2025.05</p>
+                <p class="program-title">Project Manager, Cornell ISST Website Redesign</p>
+                <p>Led a 5-person Agile team and cut page load time by 40%.</p>
+              </li>
+              <li>
+                <p class="program-meta">2025</p>
+                <p class="program-title">NVIDIA Summer Bridge &amp; Omniverse</p>
+                <p>Selected for digital twin and GPU simulation training.</p>
+              </li>
+              <li>
+                <p class="program-meta">2025.05 → 2025.08</p>
+                <p class="program-title">CodePath Technical Interview Prep</p>
+                <p>12 weeks of data structures, algorithms, complexity analysis, and mock interviews.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== Research ========== -->
+      <section class="section section-tinted" id="research" aria-labelledby="research-title">
+        <div class="wrap">
+          <header class="section-head">
+            <p class="section-label"><span>02</span> ~/research</p>
+            <h2 id="research-title">Research</h2>
+          </header>
+
+          <article class="paper">
+            <div class="paper-main">
+              <div class="paper-meta">
+                <span class="badge"><span class="status-dot" aria-hidden="true"></span>Under review</span>
+                <span>Manuscript · OpenReview</span>
+              </div>
+              <h3 class="paper-title">Trace2RLE: From Agent Traces to Stateful Reinforcement-Learning Environments</h3>
+              <p class="paper-summary">A nonintrusive framework that turns historical execution traces into a stateful RL environment for any tool set, without training a world model.</p>
+              <details class="abstract">
+                <summary>Read the abstract</summary>
+                <p>LLM agents are increasingly used in real world industry workflows and as personal assistants. To help these agents master domain specific tools, reinforcement learning (RL) is essential. However, training directly with real tools is rarely feasible: third party services such as payment systems cannot be used during training, tool operations may cause irreversible side effects, and even building simulated environments with real tools requires extensive engineering work. Existing simulation alternatives either require manual server coding or rely on training expensive world models, which may not generalize to new tools unseen during training. In contrast, we propose Trace2RLE, a nonintrusive framework that turns historical execution traces into a stateful RL environment for any tool set without training a world model. When the agent calls a tool during training, Trace2RLE retrieves similar past calls from logs and uses them to guide an LLM to generate realistic tool outputs and update the session state across turns. On τ²-bench, RL training in Trace2RLE achieves a 0.961 reward on the real backend, matching direct training with real tools and showcasing its effectiveness as a practical, scalable replacement for real tool environments.</p>
+              </details>
+              <a class="arrow-link" href="https://openreview.net/forum?id=8b4247XWpS">View submission on OpenReview</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ========== Projects ========== -->
+      <section class="section" id="projects" aria-labelledby="projects-title">
+        <div class="wrap">
+          <header class="section-head">
+            <p class="section-label"><span>03</span> ~/projects</p>
+            <h2 id="projects-title">Selected projects</h2>
+          </header>
+
+          <div class="project-grid">
+            <article class="project project-featured">
+              <a class="project-shot" href="https://pharmaboard-web.vercel.app/" tabindex="-1" aria-hidden="true">
+                <span class="window-bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">pharmaboard-web.vercel.app</span></span>
+                <img src="/projects/pharmaboard.png" alt="" width="900" height="570" loading="lazy">
+              </a>
+              <div class="project-body">
+                <p class="project-kind">Full-stack platform</p>
+                <h3><a href="https://pharmaboard-web.vercel.app/">PharmaBoard</a></h3>
+                <p>A platform for pharmacy students and professionals across 14 Ghanaian institutions. It has Google OAuth, mutual-follow messaging enforced on the server, searchable chat history, unread notifications, embedded video calls, and authenticated media uploads with storage quotas.</p>
+                <p class="stack">Go · PostgreSQL · React · TypeScript · Tailwind</p>
+                <p class="project-links">
+                  <a class="arrow-link" href="https://pharmaboard-web.vercel.app/">Live app</a>
+                  <a class="arrow-link muted" href="https://github.com/John-Tenkorang-Anim/pharmaboard">Source<span class="sr-only"> code for PharmaBoard</span></a>
+                </p>
+              </div>
+            </article>
+
+            <article class="project">
+              <a class="project-shot" href="https://pulse-jobt.onrender.com/" tabindex="-1" aria-hidden="true">
+                <span class="window-bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">pulse-jobt.onrender.com</span></span>
+                <img src="/projects/pulse.png" alt="" width="900" height="570" loading="lazy">
+              </a>
+              <div class="project-body">
+                <p class="project-kind">Distributed systems</p>
+                <h3><a href="https://pulse-jobt.onrender.com/">Pulse</a></h3>
+                <p>A dependency-free Java health-check daemon. Its nodes form a peer-to-peer TCP mesh, agree on service health by quorum, flag <code>SPLIT_BRAIN</code> when a node loses its path, and spot slowdowns with a from-scratch autoencoder.</p>
+                <p class="stack">Java · TCP/IP · Quorum consensus · SQLite · Docker</p>
+                <p class="project-links"><a class="arrow-link" href="https://pulse-jobt.onrender.com/">Live dashboard</a></p>
+              </div>
+            </article>
+
+            <article class="project">
+              <a class="project-shot" href="https://huggingface.co/spaces/JohnnyGracious/medlens-ai" tabindex="-1" aria-hidden="true">
+                <span class="window-bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">huggingface.co/spaces/medlens-ai</span></span>
+                <img src="/projects/medlens.png" alt="" width="900" height="570" loading="lazy">
+              </a>
+              <div class="project-body">
+                <p class="project-kind">Computer vision</p>
+                <h3><a href="https://huggingface.co/spaces/JohnnyGracious/medlens-ai">MedLens AI</a></h3>
+                <p>Explainable pneumonia detection. A ResNet-18 trained on 5,856 chest X-rays, served statelessly with a Grad-CAM heatmap for every prediction.</p>
+                <p class="stack">PyTorch · Grad-CAM · Hugging Face</p>
+                <p class="project-links"><a class="arrow-link" href="https://huggingface.co/spaces/JohnnyGracious/medlens-ai">Live demo</a></p>
+              </div>
+            </article>
+
+            <article class="project">
+              <a class="project-shot" href="https://smart-grid-energy-forecast-a4vwwv3nehbrwzkju687i4.streamlit.app/" tabindex="-1" aria-hidden="true">
+                <span class="window-bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">smart-grid-energy-forecast.streamlit.app</span></span>
+                <img src="/projects/smart-grid.png" alt="" width="900" height="570" loading="lazy">
+              </a>
+              <div class="project-body">
+                <p class="project-kind">Applied machine learning</p>
+                <h3><a href="https://smart-grid-energy-forecast-a4vwwv3nehbrwzkju687i4.streamlit.app/">Smart Grid Energy Forecast</a></h3>
+                <p>Forecasts household demand, electricity prices, and grid carbon intensity from California grid data. A reinforcement-learning agent recommends when to use electricity.</p>
+                <p class="stack">Spark · XGBoost · RL · Streamlit</p>
+                <p class="project-links">
+                  <a class="arrow-link" href="https://smart-grid-energy-forecast-a4vwwv3nehbrwzkju687i4.streamlit.app/">Live app</a>
+                  <a class="arrow-link muted" href="https://github.com/John-Tenkorang-Anim/smart-grid-energy-forecast">Source<span class="sr-only"> code for Smart Grid Energy Forecast</span></a>
+                </p>
+              </div>
+            </article>
+
+            <article class="project">
+              <a class="project-shot" href="https://codedoc-analyst-pro.vercel.app/" tabindex="-1" aria-hidden="true">
+                <span class="window-bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">codedoc-analyst-pro.vercel.app</span></span>
+                <img src="/projects/codedoc.png" alt="" width="900" height="570" loading="lazy">
+              </a>
+              <div class="project-body">
+                <p class="project-kind">Developer tools</p>
+                <h3><a href="https://codedoc-analyst-pro.vercel.app/">CodeDoc Analyst Pro</a></h3>
+                <p>Analyzes a codebase and generates browsable documentation from it.</p>
+                <p class="project-links">
+                  <a class="arrow-link" href="https://codedoc-analyst-pro.vercel.app/">Live app</a>
+                  <a class="arrow-link muted" href="https://github.com/John-Tenkorang-Anim/codedoc-analyst-pro">Source<span class="sr-only"> code for CodeDoc Analyst Pro</span></a>
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== About ========== -->
+      <section class="section section-tinted" id="about" aria-labelledby="about-title">
+        <div class="wrap">
+          <header class="section-head">
+            <p class="section-label"><span>04</span> ~/about</p>
+            <h2 id="about-title">About</h2>
+          </header>
+
+          <div class="about">
+            <div class="prose">
+              <p class="prose-lead">I’m studying Information Science at Cornell University, and working toward closing the AI infrastructure gap in Ghana and across Africa.</p>
+              <p>At Microsoft, on CoreAI Platform &amp; Tools, I built infrastructure for testing and understanding LLM-based agents: a simulator that replays agents against recorded production traces, and graph-based scoring that catches regressions before rollout. At Cornell, I work with Matthew Wilkens on training language models for literary annotation.</p>
+              <p>I enjoy backend and distributed systems, performance work, and turning machine learning experiments into software people can use. I work mostly in Python, Go, and Java, and I’m comfortable across the stack, from cloud infrastructure to user-facing apps. At Carmauto, that meant keeping calendars in sync across Google and Outlook. With PharmaBoard, it meant shipping a platform that hundreds of pharmacy students in Ghana use.</p>
+              <p>I’m also a Christian. Right now, I’m focused on growing as a software engineer through projects, research, and internships, and I’m always happy to connect.</p>
+            </div>
+
+            <aside class="focus" aria-labelledby="focus-title">
+              <h3 class="subhead" id="focus-title">Focus areas</h3>
+              <ul class="focus-list">
+                <li><strong>AI infrastructure</strong><span>The compute, orchestration, and serving layers that let models train and run reliably at scale.</span></li>
+                <li><strong>Infrastructure software engineering</strong><span>Platforms, automation, and observability that other engineers’ systems depend on.</span></li>
+                <li><strong>Networks</strong><span>How data moves between machines: protocols, transport, and the latency and failures in between.</span></li>
+                <li><strong>Distributed systems</strong><span>Independent nodes acting as one, through consensus and replication, staying correct when parts fail.</span></li>
+                <li><strong>LLMs &amp; agents</strong><span>Models that plan, call tools, and remember, plus the evaluation and environments that make them dependable.</span></li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== Education & skills ========== -->
+      <section class="section" id="education" aria-labelledby="education-title">
+        <div class="wrap">
+          <header class="section-head">
+            <p class="section-label"><span>05</span> ~/education &amp;&amp; skills</p>
+            <h2 id="education-title">Education &amp; skills</h2>
+          </header>
+
+          <div class="edu-skills">
+            <div class="education">
+              <article class="school">
+                <p class="school-place">2024.08 → 2028.05 · Ithaca, NY</p>
+                <h3>Cornell University</h3>
+                <p>B.S. Information Science</p>
+                <dl class="school-details">
+                  <div><dt>Coursework</dt><dd>Distributed Systems, Operating Systems, Systems Programming, Algorithms, Databases, Machine Learning</dd></div>
+                  <div><dt>Activities</dt><dd>National Society of Black Engineers, Underrepresented Minorities in Computing</dd></div>
+                </dl>
+              </article>
+              <article class="school">
+                <p class="school-place">Legon, Accra, Ghana</p>
+                <h3>Presbyterian Boys’ Secondary School</h3>
+                <p>PRESEC–Legon</p>
+                <ul class="bullets">
+                  <li>National Science &amp; Maths Quiz (NSMQ) champion, 2022 nationals and regionals</li>
+                  <li>President, PRESEC Science and Math Club</li>
+                  <li>Science researcher, PRESEC Sharks Club</li>
+                  <li>Bronze medalist, Ghana Science Olympiad</li>
+                  <li>Bronze medalist, STMIE Camp at Academic City</li>
+                </ul>
+              </article>
+            </div>
+
+            <div class="skills-panel">
+              <h3 class="subhead">Technical skills</h3>
+              <dl class="skills">
+                <div>
+                  <dt>Languages</dt>
+                  <dd><ul class="tags"><li>Python</li><li>Go</li><li>Java</li><li>C++</li><li>TypeScript</li><li>JavaScript</li><li>SQL</li></ul></dd>
+                </div>
+                <div>
+                  <dt>Backend &amp; infrastructure</dt>
+                  <dd><ul class="tags"><li>PostgreSQL</li><li>FastAPI</li><li>Flask</li><li>Node.js</li><li>React</li><li>Docker</li><li>Kubernetes</li><li>Linux</li><li>CI/CD</li><li>OpenTelemetry</li></ul></dd>
+                </div>
+                <div>
+                  <dt>Cloud, data &amp; ML</dt>
+                  <dd><ul class="tags"><li>Azure</li><li>GCP</li><li>AWS</li><li>Spark</li><li>PyTorch</li><li>XGBoost</li><li>scikit-learn</li><li>pandas</li></ul></dd>
+                </div>
+                <div>
+                  <dt>AI &amp; research</dt>
+                  <dd><ul class="tags"><li>LLMs</li><li>Agent evaluation</li><li>RAG</li><li>GNNs</li><li>Reinforcement learning</li></ul></dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========== Contact ========== -->
+    <footer class="site-footer" id="contact">
+      <div class="wrap">
+        <div class="contact">
+          <p class="kicker kicker-light"><span class="kicker-comment">$</span> ./contact.sh</p>
+          <h2>Let’s build something <em>dependable</em>.</h2>
+          <p class="contact-copy">I’m open to software engineering and research opportunities. The fastest way to reach me is email.</p>
+          <div class="contact-actions">
+            <a class="button button-light" href="mailto:ja857@cornell.edu">ja857@cornell.edu</a>
+            <a class="button button-outline-light" href="/resume/John_Tenkorang_Anim_Resume.pdf">Download résumé</a>
+          </div>
+        </div>
+      </div>
+      <div class="status-bar">
+        <div class="wrap status-inner">
+          <p class="status-left">
+            <span class="status-item"><span class="status-dot" aria-hidden="true"></span>available</span>
+            <span class="status-item">Ithaca, NY <time id="local-time"></time></span>
+            <span class="status-item status-hide-sm">© 2026 John Tenkorang Anim</span>
+          </p>
+          <nav aria-label="Professional profiles">
+            <a href="https://github.com/John-Tenkorang-Anim">github</a>
+            <a href="https://www.linkedin.com/in/john-anim/">linkedin</a>
+            <a href="https://openreview.net/forum?id=8b4247XWpS">openreview</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
