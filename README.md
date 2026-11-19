@@ -10,7 +10,7 @@ src/index.css         All styles (design tokens at the top)
 src/main.js           Optional enhancements: active nav highlight, local clock
 public/               Static assets copied as-is into the build
   favicon.svg
-  john-anim-portrait.png
+  john-anim-portrait.jpg
   projects/           Project screenshots (900×570)
   resume/             Résumé PDF linked from the header and footer
 scripts/build.mjs     Copies index.html, src/, and public/ into dist/
